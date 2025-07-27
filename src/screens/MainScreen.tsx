@@ -1,9 +1,14 @@
 import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView,TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons'; // 아이콘 import
-import styles from '../styles/globalStyles';
+import styles from '../styles/MainScreenStyles';
 
-export default function MainScreen() {
+type Props = {
+    onReceivedListPress: () => void;
+    onProcessingListPress:() =>void;
+};
+
+export default function MainScreen({onReceivedListPress,onProcessingListPress} :Props) {
   return (
     <>
       {/* 최근 열람 */}
@@ -32,10 +37,12 @@ export default function MainScreen() {
       <View style={styles.basic}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 24 }}>
           <Text style={styles.detailTitleFont}>접수되었습니다</Text>
-          <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
-            <Text style={styles.fullViewFont}>전체보기</Text>
-            <Icon name="chevron-forward-outline" size={20} color="#000" style={{ marginLeft: 4 }} />
-          </View>
+          <TouchableOpacity onPress={onReceivedListPress}>
+            <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
+                <Text style={styles.fullViewFont}>전체보기</Text>
+                <Icon name="caret-forward-outline" size={20} color="#000" style={{ marginLeft: 4 }} />
+            </View>
+          </TouchableOpacity>
         </View>
 
         <ScrollView
@@ -55,11 +62,14 @@ export default function MainScreen() {
       <View style={styles.basic}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 24 }}>
           <Text style={styles.detailTitleFont}>처리중입니다</Text>
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Text style={styles.fullViewFont}>전체보기</Text>
-            <Icon name="chevron-forward-outline" size={20} color="#000" style={{ marginLeft: 4 }} />
-          </View>
+          <TouchableOpacity onPress={onProcessingListPress}>
+              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <Text style={styles.fullViewFont}>전체보기</Text>
+                <Icon name="caret-forward-outline" size={20} color="#000" style={{ marginLeft: 4 }} />
+              </View>
+            </TouchableOpacity>
         </View>
+
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
