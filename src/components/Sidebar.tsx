@@ -21,6 +21,7 @@ export default function Sidebar(
         ,onReceivedPress
         ,onProcessingPress
         ,onCompletedPress
+        ,onSettingPress
     } : SidebarProps) {
   const translateX = useRef(new Animated.Value(-width)).current;
 
@@ -61,7 +62,7 @@ export default function Sidebar(
               </TouchableOpacity>
           </View>
 
-          <TouchableOpacity onPress={() => console.log('설정 클릭')} style={styles.settingsIcon}>
+          <TouchableOpacity onPress={onSettingPress} style={styles.settingsIcon}>
               <Icon name="settings-outline" size={28} color="#fff" />
           </TouchableOpacity>
 
