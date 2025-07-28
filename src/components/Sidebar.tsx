@@ -1,13 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import {
-  Animated,
-  View,
-  Text,
-  StyleSheet,
-  Dimensions,
-  TouchableWithoutFeedback,
-  TouchableOpacity,
-} from 'react-native';
+import {Animated, View, Text, StyleSheet,Dimensions,
+        TouchableWithoutFeedback, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const { width } = Dimensions.get('window');
