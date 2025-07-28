@@ -53,25 +53,6 @@ export default StyleSheet.create({
     margin:5,
     ...shadowStyle,
   },
-  hotIssue: {
-    padding: 20,
-    backgroundColor :'#fff',
-  },
-  hotIssueColoredBox: {
-    backgroundColor: '#324A8A',
-    borderRadius: 24,
-    justifyContent: 'space-between',
-    paddingHorizontal: 24,
-    alignItems: 'center',
-    flexDirection: 'row',
-    ...shadowStyle,
-  },
-
-  hotIssueFont: {
-    color: '#fff',
-    fontSize: 15,
-    padding: 10,
-  },
 
   basic: {
     padding: 24,

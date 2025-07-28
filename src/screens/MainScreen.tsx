@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState }  from 'react';
 import { View, Text, ScrollView,TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from '../styles/MainScreenStyles';
@@ -23,14 +23,6 @@ export default function MainScreen({onReceivedListPress,onProcessingListPress} :
           <View style={styles.recentOpenBlock} />
           <View style={styles.recentOpenBlock} />
         </ScrollView>
-      </View>
-
-      {/* 인기 검색어 */}
-      <View style={styles.hotIssue}>
-        <View style={styles.hotIssueColoredBox}>
-          <Text style={styles.hotIssueFont}> 인기 검색어 </Text>
-          <Text style={styles.hotIssueFont}>1. 안녕하세요</Text>
-        </View>
       </View>
 
       {/* 접수되었습니다 */}

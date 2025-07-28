@@ -4,8 +4,9 @@ import {NavigationContainer,NavigationContainerRef,} from '@react-navigation/nat
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import AppBar from './src/components/AppBar';
-import Sidebar from './src/components/Sidebar';
 import BottomInformation from './src/components/BottomInformation';
+import Sidebar from './src/components/Sidebar';
+import HotIssue from './src/components/HotIssue'
 
 import MainScreen from './src/screens/MainScreen';
 import SearchScreen from './src/screens/SearchScreen';
@@ -16,6 +17,7 @@ import DetailReceivedScreen from './src/screens/Received/DetailReceivedScreen';
 import WordExplanationScreen from './src/screens/WordExplanationScreen';
 import CompletedListScreen from './src/screens/CompletedListScreen';
 import SettingScreen from './src/screens/SettingScreen';
+
 
 export const navigationRef = createRef<NavigationContainerRef<any>>();
 
@@ -63,6 +65,7 @@ export default function App() {
                   onSearchPress={() => navigation.navigate('Search')}
                 />
                 <ScrollView>
+                  <HotIssue/>
                   <MainScreen
                     onReceivedListPress={() => navigation.navigate('ReceivedList')}
                     onProcessingListPress={() => navigation.navigate('ProcessingList')}
