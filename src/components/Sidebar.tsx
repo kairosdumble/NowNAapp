@@ -8,9 +8,20 @@ const { width } = Dimensions.get('window');
 type SidebarProps = {
   visible: boolean;
   onClose: () => void;
+  onWordExplainPress: () =>void;
+  onReceivedPress: () =>void;
+  onProcessingPress: () =>void;
+  onCompletedPress: () => void;
 };
 
-export default function Sidebar({ visible, onClose }: SidebarProps) {
+export default function Sidebar(
+    { visible
+        ,onClose
+        ,onWordExplainPress
+        ,onReceivedPress
+        ,onProcessingPress
+        ,onCompletedPress
+    } : SidebarProps) {
   const translateX = useRef(new Animated.Value(-width)).current;
 
   useEffect(() => {
@@ -33,10 +44,21 @@ export default function Sidebar({ visible, onClose }: SidebarProps) {
           </TouchableOpacity>
 
           <View>
-              <Text style={styles.sidebarItem}>용어설명</Text>
-              <Text style={styles.sidebarItem}>접수</Text>
+              <TouchableOpacity onPress={onWordExplainPress}>
+                <Text style={styles.sidebarItem}>용어설명</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={onReceivedPress}>
+                <Text style={styles.sidebarItem}>접수</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={onProcessingPress}>
               <Text style={styles.sidebarItem}>처리 중</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={onCompletedPress}>
               <Text style={styles.sidebarItem}>완료</Text>
+              </TouchableOpacity>
           </View>
 
           <TouchableOpacity onPress={() => console.log('설정 클릭')} style={styles.settingsIcon}>
