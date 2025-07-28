@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, ScrollView,TouchableOpacity} from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons'; // 아이콘 import
+import Icon from 'react-native-vector-icons/Ionicons';
 import styles from '../styles/MainScreenStyles';
 
 type Props = {
