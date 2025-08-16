@@ -1,6 +1,6 @@
 import React, { useState, createRef } from 'react';
 import { SafeAreaView, ScrollView, Text } from 'react-native';
-import {NavigationContainer,NavigationContainerRef,} from '@react-navigation/native';
+import { NavigationContainer,NavigationContainerRef,} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import AppBar from './src/components/AppBar';
