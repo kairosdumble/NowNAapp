@@ -3,15 +3,14 @@
 ## [개발환경]
 
 - android studio
-- 
+  
 - react native (JavaScript, TypeScript)
-
+  
 - 기준 휴대폰 기종 : (android) Galuxy s24, (ios)
 
 ## [OpenAPI 요청주소]
 
 - 의안 제안자정보 https://open.assembly.go.kr/portal/openapi/BILLINFOPPSR
-  
 - 법률안 심사 및 처리(의안검색) https://open.assembly.go.kr/portal/openapi/TVBPMBILL11
 - 법률안 심사 및 처리(계류의안) https://open.assembly.go.kr/portal/openapi/nwbqublzajtcqpdae
 - 법률안 심사 및 처리(본회의부의안건) https://open.assembly.go.kr/portal/openapi/nayjnliqaexiioauy
@@ -24,10 +23,10 @@
 ## [실행방법]
 
 android
-> npx react-native run-android
+``` npx react-native run-android ```
 
 ios
-> npx react-native run-ios
+``` npx react-native run-ios```
 
 ## [폴더 구조]
 
@@ -42,11 +41,9 @@ ios
 
 /src/screens/Received : 접수되었습니다 화면
 
-
 /src/components : 화면에서 여러번 사용할 가능성이 있는 요소들
 
 /src/config: OpenAPI 키/링크 정보, 상수 변수 선언
-
 
 /src/styles : UI 디자인 구현
 
