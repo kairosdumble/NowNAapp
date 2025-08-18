@@ -1,97 +1,53 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+이 프로젝트는 대한민국 의안내용을 손쉽게 확인할 수 있도록 해주는 react native 어플리케이션입니다.
 
-# Getting Started
+## [개발환경]
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+- android studio
+- 
+- react native (JavaScript, TypeScript)
 
-## Step 1: Start Metro
+- 기준 휴대폰 기종 : (android) Galuxy s24, (ios)
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## [OpenAPI 요청주소]
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+- 의안 제안자정보 https://open.assembly.go.kr/portal/openapi/BILLINFOPPSR
+  
+- 법률안 심사 및 처리(의안검색) https://open.assembly.go.kr/portal/openapi/TVBPMBILL11
+- 법률안 심사 및 처리(계류의안) https://open.assembly.go.kr/portal/openapi/nwbqublzajtcqpdae
+- 법률안 심사 및 처리(본회의부의안건) https://open.assembly.go.kr/portal/openapi/nayjnliqaexiioauy
+- 법률안 심사 및 처리(최근 본회의처리 의안) https://open.assembly.go.kr/portal/openapi/nxjuyqnxadtotdrbw
+- 의안별 표결현황 https://open.assembly.go.kr/portal/openapi/ncocpgfiaoituanbr
+- 의안 상세정보 https://open.assembly.go.kr/portal/openapi/BILLINFODETAIL
+- 의안 접수목록 https://open.assembly.go.kr/portal/openapi/BILLRCP
+- 의안정보 통합 API https://open.assembly.go.kr/portal/openapi/ALLBILL
 
-```sh
-# Using npm
-npm start
+## [실행방법]
 
-# OR using Yarn
-yarn start
-```
+android
+> npx react-native run-android
 
-## Step 2: Build and run your app
+ios
+> npx react-native run-ios
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## [폴더 구조]
 
-### Android
+/app.json : 앱 이름 정보
 
-```sh
-# Using npm
-npm run android
+/APP.tsx: 페이지 이동 설계
 
-# OR using Yarn
-yarn android
-```
 
-### iOS
+/src/screens : 기본적인 화면 배치 구현
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+/src/screens/Processing : 처리중입니다 화면
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+/src/screens/Received : 접수되었습니다 화면
 
-```sh
-bundle install
-```
 
-Then, and every time you update your native dependencies, run:
+/src/components : 화면에서 여러번 사용할 가능성이 있는 요소들
 
-```sh
-bundle exec pod install
-```
+/src/config: OpenAPI 키/링크 정보, 상수 변수 선언
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
 
-```sh
-# Using npm
-npm run ios
+/src/styles : UI 디자인 구현
 
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+/src/styles/lib : 여러번 사용하는 ui 스타일
