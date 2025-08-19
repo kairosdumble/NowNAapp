@@ -10,13 +10,18 @@ import HotIssue from './src/components/HotIssue'
 
 import MainScreen from './src/screens/MainScreen';
 import SearchScreen from './src/screens/SearchScreen';
+import WordExplanationScreen from './src/screens/WordExplanationScreen';
+import SettingScreen from './src/screens/SettingScreen';
+
 import ProcessingListScreen from './src/screens/Processing/ProcessingListScreen';
 import DetailProcessingScreen from './src/screens/Processing/DetailProcessingScreen';
+
 import ReceivedListScreen from './src/screens/Received/ReceivedListScreen';
 import DetailReceivedScreen from './src/screens/Received/DetailReceivedScreen';
-import WordExplanationScreen from './src/screens/WordExplanationScreen';
-import CompletedListScreen from './src/screens/CompletedListScreen';
-import SettingScreen from './src/screens/SettingScreen';
+
+import DetailCompletedScreen from './src/screens/Completed/DetailCompletedScreen';
+import CompletedListScreen from './src/screens/Completed/CompletedListScreen';
+
 
 
 export const navigationRef = createRef<NavigationContainerRef<any>>();
@@ -95,9 +100,7 @@ export default function App() {
                   onHomePress={() => navigation.navigate('Main')}
                   onSearchPress={() => navigation.navigate('Search')}
                 />
-                <ScrollView>
-                    <ProcessingListScreen onBack={() => navigation.goBack()} />
-                </ScrollView>
+                <ProcessingListScreen onBack={() => navigation.goBack()} />
                </>
             )}
           </Stack.Screen>
@@ -111,9 +114,7 @@ export default function App() {
                   onHomePress={() => navigation.navigate('Main')}
                   onSearchPress={() => navigation.navigate('Search')}
                 />
-                <ScrollView>
-                    <ReceivedListScreen onBack={() => navigation.goBack()} />
-                </ScrollView>
+                <ReceivedListScreen onBack={() => navigation.goBack()} />
                 </>
             )}
           </Stack.Screen>
@@ -127,9 +128,7 @@ export default function App() {
                   onHomePress={() => navigation.navigate('Main')}
                   onSearchPress={() => navigation.navigate('Search')}
                 />
-                <ScrollView>
-                    <WordExplanationScreen onBack={() => navigation.goBack()} />
-                </ScrollView>
+                <WordExplanationScreen onBack={() => navigation.goBack()} />
                 </>
             )}
           </Stack.Screen>
@@ -143,9 +142,7 @@ export default function App() {
                   onHomePress={() => navigation.navigate('Main')}
                   onSearchPress={() => navigation.navigate('Search')}
                 />
-                <ScrollView>
-                    <CompletedListScreen onBack={() => navigation.goBack()} />
-                </ScrollView>
+                <CompletedListScreen onBack={() => navigation.goBack()} />
                 </>
             )}
           </Stack.Screen>

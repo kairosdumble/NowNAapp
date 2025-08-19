@@ -13,11 +13,6 @@ export default function SearchScreen() {
             </TouchableOpacity>
             <View style={styles.separator} />
 
-            <TouchableOpacity>
-                <Text style={styles.font}>글자 크기 설정</Text>
-            </TouchableOpacity>
-            <View style={styles.separator} />
-
             <TouchableOpacity >
                 <Text style={styles.font}>이용약관/개인정보처리방침</Text>
             </TouchableOpacity>
