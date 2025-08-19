@@ -11,7 +11,7 @@ export default StyleSheet.create({
         alignItems: 'center',         // 세로 정렬 가운데
         justifyContent: 'space-between', // 좌우 양 끝 정렬
         paddingHorizontal: 24,        // 좌우 여백
-        paddingVertical: 20,
+        paddingTop: 20,
         backgroundColor: '#fff',
     },
   appTitle: {

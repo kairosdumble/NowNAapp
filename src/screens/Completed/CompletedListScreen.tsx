@@ -1,3 +1,14 @@
+// 일단 접수창 (ProcessingListScreen)과 같게 만들어둠.
+
+
+
+
+
+
+
+
+
+
 import React, { useEffect, useState,useRef,useCallback} from 'react';
 import { View, Text, FlatList, ActivityIndicator } from 'react-native';
 import axios from 'axios';
@@ -26,7 +37,7 @@ type BillUI = {
   raw: Bill;         // 원본(필요시 상세 화면으로 전달)
 };
 
-export default function ProcessingListScreen() {
+export default function CompletedListScreen() {
   const [bills, setBills] = useState<BillUI[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -168,7 +179,7 @@ export default function ProcessingListScreen() {
         <Text style={{ padding: 20 }}>표시할 의안이 없습니다</Text>
       ) : (
           <>
-          <Text style = {styles.headerFont}> 처리중입니다 </Text>
+          <Text style = {styles.title}> 완료했습니다 </Text>
 
         <FlatList
           data={bills}

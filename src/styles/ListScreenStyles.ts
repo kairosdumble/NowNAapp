@@ -15,11 +15,17 @@ export default StyleSheet.create({
         backgroundColor:'#fff',
         ...shadowStyle,
         },
-
+    headerFont:{
+        paddingBottom:10,
+        fontSize:25,
+        fontWeight:'bold',
+        textAlign: 'center',
+        color:'#696969',
+        },
     title:{
         fontSize: 18,
         fontWeight: 'bold',
-        padding: 10,
+        padding: 5,
         },
     blockHeadingFont:{
         fontSize:15,
@@ -33,7 +39,7 @@ export default StyleSheet.create({
         },
     item: {
         marginBottom: 16,
-        padding: 12,
+        padding: 10,
         borderWidth: 1,
         borderColor: '#ccc',
         borderRadius: 8,

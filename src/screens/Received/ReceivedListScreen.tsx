@@ -1,35 +1,29 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import { View, Text, FlatList, ActivityIndicator } from 'react-native';
+import { View, Text, FlatList, ActivityIndicator} from 'react-native';
 import axios from 'axios';
 import styles from '../../styles/ListScreenStyles';
-import { API_KEY, API_URL } from '../../config/config';
-
-const PAGE_SIZE_FALLBACK = 50;
+import { RECEIVED_API_URL,API_KEY,PAGE_SIZE } from '../../config/config';
 
 type Bill = {
-  BILL_ID?: string;
-  BILL_NO?: string;
-  AGE ?: string;
-  BILL_NAME?: string;
-  PROPOSER ?: string;
-  PROPOSER_KIND ?:string;
-  CURR_COMMITTEE_ID? : string;
-  CURR_COMMITTEE ?: string;
-  PROC_RESULT_CD ?: string;
-  PROC_DT?: string;
+  BILL_ID?: string;            //의안 ID
+  BILL_NO?: string;            //의안 번호
+  BILL_NAME?: string;          //의안명
+  PROPOSER ?: string;          //제안자
+  PROPOSER_KIND ?:string;      //제안자 구분
+  CURR_COMMITTEE_ID? : string; //소관위 코드
+  CURR_COMMITTEE ?: string;    //소관위 AGE,PROC_RESULT_CD
 };
 
 type BillUI = {
   key: string;       // FlatList key
   title: string;     // 의안명
   idOrNo: string;    // [BILL_NO or BILL_ID]
-  proposer?: string; // 제안자구분
-  result?: string;   // 심의결과
-  date?: string;     // 날짜(제안일/처리일 등)
+  proposer: string;  // 제안자구분
+  date: string;      // 날짜 (제안일/처리일 등)
   raw: Bill;         // 원본(필요시 상세 화면으로 전달)
 };
 
-export default function BillsLatestScreen() {
+export default function ReceivedListScreen() {
   const [bills, setBills] = useState<BillUI[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -64,41 +58,19 @@ export default function BillsLatestScreen() {
 
   // Bill → UI 데이터 정규화
   const toUI = (item: Bill): BillUI => {
-    const id = item.BILL_ID ?? item.billId ?? item.id;
-    const no = item.BILL_NO ?? item.billNo ?? item.no;
-    const title =
-      item.BILL_NM ??
-      item.BILL_NAME ??
-      item.BILL_TITLE ??
-      item.title ??
-      '(제목 없음)';
-
-    const proposer =
-      item.PPSR_KND ?? item.proposerKind ?? item.PROPOSER ?? item.proposer;
-
-    const result =
-      item.RGS_CONF_RSLT ??
-      item.PROC_RESULT ??
-      item.result ??
-      item.status;
-
-    // 날짜 후보들 중 하나 선택
-    const date =
-      item.PPSL_DT ??
-      item.PROC_DT ??
-      item.DATE ??
-      item.regDate ??
-      undefined;
-
-    const key = String(id ?? no ?? title ?? Math.random());
+    const id = item.BILL_ID;
+    const no = item.BILL_NO;
+    const title = item.BILL_NAME;
+    const proposer = item.PROPOSER;
+    const date = item.PROPOSE_DT;
+    const key = id;
 
     return {
       key,
       title: String(title),
       idOrNo: String(no ?? id ?? '-'),
-      proposer: proposer ? String(proposer) : undefined,
-      result: result ? String(result) : undefined,
-      date: date ? String(date) : undefined,
+      proposer: proposer,
+      date: date,
       raw: item,
     };
   };
@@ -128,12 +100,12 @@ export default function BillsLatestScreen() {
     try {
       setLoading(true);
 
-      const res = await axios.get(API_URL, {
+      const res = await axios.get(RECEIVED_API_URL, {
         params: {
           KEY: API_KEY,
           Type: 'json',
           pIndex: 1,
-          pSize: PAGE_SIZE_FALLBACK, // config에 export 안 되어 있으므로 기본 5 사용
+          pSize: PAGE_SIZE,
         },
         signal: controllerRef.current!.signal,
       });
@@ -168,9 +140,8 @@ export default function BillsLatestScreen() {
   const renderItem = useCallback(({ item }: { item: BillUI }) => (
     <View style={styles.item}>
       <Text style={styles.title}>[{item.idOrNo}] {item.title}</Text>
-      {item.proposer ? <Text>제안자구분: {item.proposer}</Text> : null}
-      {item.result ? <Text>본회의 심의결과: {item.result}</Text> : null}
-      {item.date ? <Text>기준일자: {item.date}</Text> : null}
+      <Text> 제안자: {item.proposer}</Text>
+      <Text> 제출일: {item.date}</Text>
     </View>
   ), []);
 
@@ -187,18 +158,21 @@ export default function BillsLatestScreen() {
   return (
     <View style={styles.container}>
       {bills.length === 0 ? (
-        <Text style={{ padding: 20 }}>표시할 의안이 없습니다</Text>
+          <Text style={{ padding: 20 }}>표시할 의안이 없습니다</Text>
       ) : (
-        <FlatList
-          data={bills}
-          keyExtractor={keyExtractor}
-          renderItem={renderItem}
-          refreshing={refreshing}
-          onRefresh={onRefresh}
-          initialNumToRender={10}
-          windowSize={6}
-          removeClippedSubviews
-        />
+          <>
+          <Text style = {styles.headerFont}>접수되었습니다</Text>
+          <FlatList
+            data={bills}
+            keyExtractor={keyExtractor}
+            renderItem={renderItem}
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+            initialNumToRender={10}
+            windowSize={6}
+            removeClippedSubviews
+          />
+          </>
       )}
     </View>
   );
