@@ -7,9 +7,10 @@ import {API_KEY,API_URL} from '../../config/config';
 type Props = {
     onReceivedListPress: () => void;
     onProcessingListPress:() =>void;
+    onCompletedListPress:() =>void;
 };
 
-export default function MainScreen({onReceivedListPress,onProcessingListPress} :Props) {
+export default function MainScreen({onReceivedListPress,onProcessingListPress,onCompletedListPress} :Props) {
 
   return (
     <>
@@ -44,8 +45,13 @@ export default function MainScreen({onReceivedListPress,onProcessingListPress} :
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.scrollContainer}
         >
-          <View style={[styles.basicBlock, { backgroundColor: '#FFE9E9' }]} />
-          <View style={[styles.basicBlock, { backgroundColor: '#EAF5FF' }]} />
+          <View style={[styles.basicBlock, { backgroundColor: '#FFE9E9' }]}>
+               <Text>1번</Text>
+          </View>
+
+          <View style={[styles.basicBlock, { backgroundColor: '#EAF5FF' }]}>
+                <Text>1번</Text>
+          </View>
           <View style={[styles.basicBlock, { backgroundColor: '#EAF5FF' }]} />
           <View style={[styles.basicBlock, { backgroundColor: '#EAF5FF' }]} />
           <View style={[styles.basicBlock, { backgroundColor: '#EAF5FF' }]} />
@@ -81,8 +87,8 @@ export default function MainScreen({onReceivedListPress,onProcessingListPress} :
       <View style={styles.basic}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 24 }}>
           <Text style={styles.detailTitleFont}>완료되었습니다</Text>
-          <TouchableOpacity onPress={onProcessingListPress}>
-              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <TouchableOpacity onPress={onCompletedListPress}>
+              <View style={{ flexDirection: 'row', alignItems: 'right' }}>
                 <Text style={styles.fullViewFont}>전체보기</Text>
                 <Icon name="caret-forward-outline" size={20} color="#000" style={{ marginLeft: 4 }} />
               </View>
@@ -94,11 +100,25 @@ export default function MainScreen({onReceivedListPress,onProcessingListPress} :
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.scrollContainer}
         >
-          <View style={[styles.basicBlock, { backgroundColor: '#e6e6e6' }]} />
-          <View style={[styles.basicBlock, { backgroundColor: '#e6e6e6' }]} />
-          <View style={[styles.basicBlock, { backgroundColor: '#e6e6e6' }]} />
-          <View style={[styles.basicBlock, { backgroundColor: '#e6e6e6' }]} />
-          <View style={[styles.basicBlock, { backgroundColor: '#e6e6e6' }]} />
+          <View style={[styles.basicBlock, { backgroundColor: '#e6e6e6' }]}>
+                <Text>1번</Text>
+          </View>
+
+          <View style={[styles.basicBlock, { backgroundColor: '#e6e6e6' }]}>
+            <Text>2번</Text>
+          </View>
+
+          <View style={[styles.basicBlock, { backgroundColor: '#e6e6e6' }]}>
+            <Text>3번</Text>
+          </View>
+
+          <View style={[styles.basicBlock, { backgroundColor: '#e6e6e6' }]}>
+            <Text>4번</Text>
+          </View>
+
+          <View style={[styles.basicBlock, { backgroundColor: '#e6e6e6' }]}>
+            <Text>5번</Text>
+          </View>
         </ScrollView>
       </View>
 

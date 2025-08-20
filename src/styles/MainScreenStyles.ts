@@ -14,37 +14,39 @@ export default StyleSheet.create({
         paddingTop: 20,
         backgroundColor: '#fff',
     },
-  appTitle: {
+  appTitle: { //지금 국회는
     fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
   },
 
-  sidebarIcon: {
+  sidebarIcon: { //사이드 바 아이콘
     position: 'absolute',
     top: 45,
     left: 24,
   },
-  searchIcon: {
+  searchIcon: { //검색창 아이콘
     position: 'absolute',
     top: 45,
     right: 24,
   },
-  detailTitleFont: {
+  detailTitleFont: { // 소제목(최근 열람,접수되었습니다 등등)
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 12,
   },
-  recentOpen: {
+  recentOpen: { //최근 열람한 의안의 배경
     padding: 20,
     flex: 1,
     backgroundColor: '#E4EFBB',
     ...shadowStyle,
   },
-  scrollContainer: {
+
+  scrollContainer: { //스크롤
     flexDirection: 'row',
   },
-  recentOpenBlock: {
+
+  recentOpenBlock: { //최근 열람한 의안 블럭
     width: 250,
     height: 180,
     backgroundColor: '#fff',
@@ -54,12 +56,12 @@ export default StyleSheet.create({
     ...shadowStyle,
   },
 
-  basic: {
+  basic: {  // 접수되었습니다, 완료되었습니다 배경
     padding: 24,
     backgroundColor: '#FFF',
     ...shadowStyle,
   },
-  basicBlock:{
+  basicBlock:{ // 접수되었습니다, 완료되었습니다 블럭
       padding:24,
       width: 250,
       height: 180,
@@ -67,12 +69,18 @@ export default StyleSheet.create({
       borderRadius: 22,
       ...shadowStyle,
   },
-    fullViewFont:{
+    fullViewFont:{ // 전체보기 버튼 글씨체
+        textAlign:'right',
         fontSize:15,
         opacity: 0.5,
     },
-  information: {
+  bottomInformation: { //하단 정보 블럭
     padding: 24,
     backgroundColor: '#FFF',
+    ...shadowStyle,
   },
+  bottomInformationFont:{ //하단 정보 블럭 폰트
+      fontSize:15,
+      opacity:0.5,
+      }
 });
