@@ -10,6 +10,7 @@ type Props = {
 };
 
 export default function MainScreen({onReceivedListPress,onProcessingListPress} :Props) {
+
   return (
     <>
       {/* 최근 열람 */}
@@ -51,7 +52,7 @@ export default function MainScreen({onReceivedListPress,onProcessingListPress} :
         </ScrollView>
       </View>
 
-      {/* 처리중입니다 */}
+      {/* 처리중입니다*/}
       <View style={styles.basic}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 24 }}>
           <Text style={styles.detailTitleFont}>처리중입니다</Text>
@@ -75,6 +76,32 @@ export default function MainScreen({onReceivedListPress,onProcessingListPress} :
           <View style={[styles.basicBlock, { backgroundColor: '#EAF5FF' }]} />
         </ScrollView>
       </View>
+
+      {/* 완료되었습니다*/}
+      <View style={styles.basic}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 24 }}>
+          <Text style={styles.detailTitleFont}>완료되었습니다</Text>
+          <TouchableOpacity onPress={onProcessingListPress}>
+              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <Text style={styles.fullViewFont}>전체보기</Text>
+                <Icon name="caret-forward-outline" size={20} color="#000" style={{ marginLeft: 4 }} />
+              </View>
+            </TouchableOpacity>
+        </View>
+
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.scrollContainer}
+        >
+          <View style={[styles.basicBlock, { backgroundColor: '#e6e6e6' }]} />
+          <View style={[styles.basicBlock, { backgroundColor: '#e6e6e6' }]} />
+          <View style={[styles.basicBlock, { backgroundColor: '#e6e6e6' }]} />
+          <View style={[styles.basicBlock, { backgroundColor: '#e6e6e6' }]} />
+          <View style={[styles.basicBlock, { backgroundColor: '#e6e6e6' }]} />
+        </ScrollView>
+      </View>
+
     </>
   );
 }
