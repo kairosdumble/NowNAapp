@@ -74,7 +74,7 @@ export default function App() {
                   <MainScreen
                     onReceivedListPress={() => navigation.navigate('ReceivedList')}
                     onProcessingListPress={() => navigation.navigate('ProcessingList')}
-                    onCompletedPress ={()=> navigation.navigate('CompletedList')}
+                    onCompletedListPress ={()=> navigation.navigate('CompletedList')}
                   />
                   <BottomInformation />
                 </ScrollView>
@@ -92,20 +92,6 @@ export default function App() {
             )}
           </Stack.Screen>
 
-          {/* 처리중 리스트 스크린 */}
-          <Stack.Screen name="ProcessingList">
-            {({ navigation }) => (
-                <>
-                <AppBar
-                  onMenuPress={() => setSidebarVisible(true)}
-                  onHomePress={() => navigation.navigate('Main')}
-                  onSearchPress={() => navigation.navigate('Search')}
-                />
-                <ProcessingListScreen onBack={() => navigation.goBack()} />
-               </>
-            )}
-          </Stack.Screen>
-
           {/* 접수된 리스트 스크린 */}
           <Stack.Screen name="ReceivedList">
             {({ navigation }) => (
@@ -120,6 +106,35 @@ export default function App() {
             )}
           </Stack.Screen>
 
+          {/* 처리중 리스트 스크린 */}
+          <Stack.Screen name="ProcessingList">
+            {({ navigation }) => (
+                <>
+                <AppBar
+                  onMenuPress={() => setSidebarVisible(true)}
+                  onHomePress={() => navigation.navigate('Main')}
+                  onSearchPress={() => navigation.navigate('Search')}
+                />
+                <ProcessingListScreen onBack={() => navigation.goBack()} />
+               </>
+            )}
+        </Stack.Screen>
+
+          {/* 완료 리스트 스크린 */}
+          <Stack.Screen name="CompletedList">
+            {({ navigation }) => (
+                <>
+                <AppBar
+                  onMenuPress={() => setSidebarVisible(true)}
+                  onHomePress={() => navigation.navigate('Main')}
+                  onSearchPress={() => navigation.navigate('Search')}
+                />
+                <CompletedListScreen onBack={() => navigation.goBack()} />
+               </>
+            )}
+
+
+          </Stack.Screen>
           {/* 용어 설명 스크린 */}
           <Stack.Screen name="WordExplanation">
             {({ navigation }) => (
@@ -130,20 +145,6 @@ export default function App() {
                   onSearchPress={() => navigation.navigate('Search')}
                 />
                 <WordExplanationScreen onBack={() => navigation.goBack()} />
-                </>
-            )}
-          </Stack.Screen>
-
-          {/* 완료 스크린*/}
-          <Stack.Screen name="CompletedList">
-            {({ navigation }) => (
-                <>
-                <AppBar
-                  onMenuPress={() => setSidebarVisible(true)}
-                  onHomePress={() => navigation.navigate('Main')}
-                  onSearchPress={() => navigation.navigate('Search')}
-                />
-                <CompletedListScreen onBack={() => navigation.goBack()} />
                 </>
             )}
           </Stack.Screen>

@@ -75,11 +75,11 @@ export default function CompletedListScreen() {
 
     return {
       key,
-      title: String(title),
-      idOrNo: String(no ?? id ?? '-'),
-      proposer: proposer ? String(proposer) : undefined,
-      result: result ? String(result) : undefined,
-      date: date ? String(date) : undefined,
+      title: title,
+      idOrNo: no ?? id ?? '-',
+      proposer: proposer,
+      result: result,
+      date: date,
       raw: item,
     };
   };
@@ -171,7 +171,7 @@ export default function CompletedListScreen() {
         <Text style={{ padding: 20 }}>표시할 의안이 없습니다</Text>
       ) : (
           <>
-          <Text style = {styles.title}> 완료했습니다 </Text>
+          <Text style = {styles.headerFont}> 완료했습니다 </Text>
 
         <FlatList
           data={bills}

@@ -67,13 +67,12 @@ export default function ProcessingListScreen() {
     const proposer = item.PROPOSER;
     const result = item.PROC_RESULT_CD;
     const date = item.PROC_DT;
-
     const key = String(id ?? Math.random());
 
     return {
       key,
-      title: String(title),
-      idOrNo: String(no ?? id ?? '-'),
+      title: title,
+      idOrNo: no ?? id ?? '-',
       proposer: proposer,
       result: result,
       date: date,
