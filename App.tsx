@@ -74,6 +74,7 @@ export default function App() {
                   <MainScreen
                     onReceivedListPress={() => navigation.navigate('ReceivedList')}
                     onProcessingListPress={() => navigation.navigate('ProcessingList')}
+                    onCompletedPress ={()=> navigation.navigate('CompletedList')}
                   />
                   <BottomInformation />
                 </ScrollView>

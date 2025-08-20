@@ -1,14 +1,6 @@
 // 일단 접수창 (ProcessingListScreen)과 같게 만들어둠.
 
 
-
-
-
-
-
-
-
-
 import React, { useEffect, useState,useRef,useCallback} from 'react';
 import { View, Text, FlatList, ActivityIndicator } from 'react-native';
 import axios from 'axios';

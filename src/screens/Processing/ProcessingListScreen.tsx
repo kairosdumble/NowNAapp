@@ -20,8 +20,8 @@ type BillUI = {
   key: string;       // FlatList key
   title: string;     // 의안명
   idOrNo: string;    // [BILL_NO or BILL_ID]
-  proposer: string; // 제안자구분
-  result: string;   // 심의결과
+  proposer: string;  // 제안자구분
+  result: string;    // 심의결과
   date?: string;     // 날짜(제안일/처리일 등)
   raw: Bill;         // 원본(필요시 상세 화면으로 전달)
 };
@@ -68,15 +68,15 @@ export default function ProcessingListScreen() {
     const result = item.PROC_RESULT_CD;
     const date = item.PROC_DT;
 
-    const key = String(id ?? no ?? title ?? Math.random());
+    const key = String(id ?? Math.random());
 
     return {
       key,
       title: String(title),
       idOrNo: String(no ?? id ?? '-'),
-      proposer: proposer ? String(proposer) : undefined,
-      result: result ? String(result) : undefined,
-      date: date ? String(date) : undefined,
+      proposer: proposer,
+      result: result,
+      date: date,
       raw: item,
     };
   };
