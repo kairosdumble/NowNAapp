@@ -74,7 +74,20 @@ export default StyleSheet.create({
         fontSize:15,
         opacity: 0.5,
     },
-  bottomInformation: { //하단 정보 블럭
+    basicBlockFont:{           //접수/처리/완료 제목글씨체
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+    basicBlockDetailFont:{     //접수/처리/완료 블럭 상세정보 글씨체
+        fontSize: 15,
+        color: '#555',
+    },
+    basicBlockNumberFont:{     //접수/처리/완료 블럭 상세정보 중 의안번호 글씨체
+        fontSize:12,
+        fontWeight: 'bold',
+        opacity: 0.5,
+    },
+  bottomInformation: {         //하단 정보 블럭
     padding: 24,
     backgroundColor: '#FFF',
     ...shadowStyle,

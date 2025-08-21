@@ -11,5 +11,11 @@ export const RECEIVED_API_URL ='https://open.assembly.go.kr/portal/openapi/nwbqu
 export const SEARCH_API_URL ='https://open.assembly.go.kr/portal/openapi/TVBPMBILL11';
 
 
+//국회사무처_의안 정보 인증키(공공 데이터 포털)
+export const BILL_INFO_KEY= 'd2d400b62a9d784f6865ae71a1b58fe8c9acb2ca4389b9336eea413159a2bb20';
+
+//국회사무처_의안 정보 호출 주소
+export const BILL_INFO_URL= 'https://apis.data.go.kr/9710000/BillInfoService2';
+
 //기타 전역 상수 선언
 const PAGE_SIZE =5;
